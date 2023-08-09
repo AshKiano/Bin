@@ -1,0 +1,8 @@
+name: Bin
+version: '${project.version}'
+main: com.ashkiano.bin.Bin
+api-version: '1.16'
+author: AshKiano
+commands:
+  bin:
+    description: Opens a bin inventory where items can be disposed.

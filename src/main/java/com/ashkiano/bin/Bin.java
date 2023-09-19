@@ -4,6 +4,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.HumanEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -16,6 +17,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.List;
 
 public class Bin extends JavaPlugin implements CommandExecutor, Listener {
     private static final String BIN = "Bin";
@@ -47,7 +49,8 @@ public class Bin extends JavaPlugin implements CommandExecutor, Listener {
 
     @EventHandler
     public void onInventoryClose(InventoryCloseEvent event) {
-        if (event.getInventory().getViewers().get(0).getOpenInventory().getTitle().equals(BIN)) {
+        List<HumanEntity> viewers = event.getInventory().getViewers();
+        if (!viewers.isEmpty() && viewers.get(0).getOpenInventory().getTitle().equals(BIN)) {
             event.getInventory().clear();
         }
     }

@@ -29,7 +29,7 @@ public class Bin extends JavaPlugin implements CommandExecutor, Listener {
         // Initialize Metrics for plugin analytics
         Metrics metrics = new Metrics(this, 19234);
 
-        this.getLogger().info("Thank you for using the Bin plugin! If you enjoy using this plugin, please consider making a donation to support the development. You can donate at: https://paypal.me/josefvyskocil");
+        this.getLogger().info("Thank you for using the Bin plugin! If you enjoy using this plugin, please consider making a donation to support the development. You can donate at: https://donate.ashkiano.com");
 
         checkForUpdates();
     }

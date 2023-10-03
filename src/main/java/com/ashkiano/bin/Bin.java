@@ -20,12 +20,16 @@ import java.net.URL;
 import java.util.List;
 
 public class Bin extends JavaPlugin implements CommandExecutor, Listener {
-    private static final String BIN = "Bin";
+    private String binTitle; // Renamed variable to reflect the config.yml
 
     @Override
     public void onEnable() {
+        this.saveDefaultConfig(); // Saves the default config if it does not exist
+        binTitle = getConfig().getString("BinTitle", "Bin"); // Load the BinTitle from config.yml
+
         this.getCommand("bin").setExecutor(this);
         Bukkit.getPluginManager().registerEvents(this, this);
+
         // Initialize Metrics for plugin analytics
         Metrics metrics = new Metrics(this, 19234);
 
@@ -42,7 +46,7 @@ public class Bin extends JavaPlugin implements CommandExecutor, Listener {
         }
 
         Player player = (Player) sender;
-        Inventory binInventory = Bukkit.createInventory(player, 54, BIN);
+        Inventory binInventory = Bukkit.createInventory(player, 54, binTitle); // Use the variable here
         player.openInventory(binInventory);
         return true;
     }
@@ -50,7 +54,7 @@ public class Bin extends JavaPlugin implements CommandExecutor, Listener {
     @EventHandler
     public void onInventoryClose(InventoryCloseEvent event) {
         List<HumanEntity> viewers = event.getInventory().getViewers();
-        if (!viewers.isEmpty() && viewers.get(0).getOpenInventory().getTitle().equals(BIN)) {
+        if (!viewers.isEmpty() && viewers.get(0).getOpenInventory().getTitle().equals(binTitle)) {
             event.getInventory().clear();
         }
     }

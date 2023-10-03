@@ -1,2 +1,7 @@
+# Whether to show the donation request message in the server console on plugin startup.
+# The message encourages server administrators to make a donation to support the development at: https://donate.ashkiano.com
+# Set to true to display the message in the console, set to false to hide it.
+ShowDonateMessage: true
+
 # The title of the bin inventory
 BinTitle: "Bin"

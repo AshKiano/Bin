@@ -20,20 +20,23 @@ import java.net.URL;
 import java.util.List;
 
 public class Bin extends JavaPlugin implements CommandExecutor, Listener {
-    private String binTitle; // Renamed variable to reflect the config.yml
+    private String binTitle;
 
     @Override
     public void onEnable() {
-        this.saveDefaultConfig(); // Saves the default config if it does not exist
-        binTitle = getConfig().getString("BinTitle", "Bin"); // Load the BinTitle from config.yml
+        this.saveDefaultConfig();
+        binTitle = getConfig().getString("BinTitle", "Bin");
+
+        boolean showDonateMessage = getConfig().getBoolean("ShowDonateMessage", true);
 
         this.getCommand("bin").setExecutor(this);
         Bukkit.getPluginManager().registerEvents(this, this);
 
-        // Initialize Metrics for plugin analytics
         Metrics metrics = new Metrics(this, 19234);
 
-        this.getLogger().info("Thank you for using the Bin plugin! If you enjoy using this plugin, please consider making a donation to support the development. You can donate at: https://donate.ashkiano.com");
+        if (showDonateMessage) {
+            this.getLogger().info("Thank you for using the Bin plugin! If you enjoy using this plugin, please consider making a donation to support the development. You can donate at: https://donate.ashkiano.com");
+        }
 
         checkForUpdates();
     }
@@ -46,7 +49,7 @@ public class Bin extends JavaPlugin implements CommandExecutor, Listener {
         }
 
         Player player = (Player) sender;
-        Inventory binInventory = Bukkit.createInventory(player, 54, binTitle); // Use the variable here
+        Inventory binInventory = Bukkit.createInventory(player, 54, binTitle);
         player.openInventory(binInventory);
         return true;
     }

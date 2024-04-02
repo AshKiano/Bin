@@ -44,7 +44,7 @@ public class Bin extends JavaPlugin implements CommandExecutor, Listener {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (!(sender instanceof Player)) {
-            sender.sendMessage("Only players can use this command!");
+            sender.sendMessage(getConfig().getString("only-player", "Only players can use this command!"));
             return true;
         }
 

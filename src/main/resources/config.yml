@@ -5,3 +5,6 @@ ShowDonateMessage: true
 
 # The title of the bin inventory
 BinTitle: "Bin"
+
+# Only player message
+only-player: "Only players can use this command!"

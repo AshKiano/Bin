@@ -1,5 +1,5 @@
 name: Bin
-version: '1.9'
+version: '1.10'
 main: com.ashkiano.bin.Bin
 api-version: '1.16'
 author: AshKiano

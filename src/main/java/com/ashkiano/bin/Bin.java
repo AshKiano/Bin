@@ -28,7 +28,7 @@ public class Bin extends JavaPlugin implements CommandExecutor, Listener {
     public void onEnable() {
         //TODO tuto chybu vypisovat i OP hráčům do chatu
         if (!isAshLibPresent()) {
-            getLogger().severe("AshLib plugin is missing! Please download and install AshLib to run Bin. (can be downloaded from: https://www.spigotmc.org/resources/ashlib.118282/ )");
+            getLogger().severe("AshLib plugin is missing! Please download and install AshLib to run Bin. (can be downloaded from: https://ashsource.ashkiano.com/resource-detail/30 )");
             Bukkit.getPluginManager().disablePlugin(this);
             return;
         }

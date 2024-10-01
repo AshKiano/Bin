@@ -9,8 +9,5 @@
         <module name="Bin" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="Bin" target="1.8" />
-    </bytecodeTargetLevel>
   </component>
 </project>

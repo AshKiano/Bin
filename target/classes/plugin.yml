@@ -1,8 +1,10 @@
 name: Bin
-version: '1.10'
+version: '1.12'
 main: com.ashkiano.bin.Bin
 api-version: '1.16'
 author: AshKiano
+#it is really dependent on AshLib, but cannot be there because i want a custom missing library message
+#depend: [AshLib]
 commands:
   bin:
     description: Opens a bin inventory where items can be disposed.
